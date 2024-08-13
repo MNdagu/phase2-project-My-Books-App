@@ -8,6 +8,7 @@ import ViewDetails from "./components/ViewDetails";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [favourite,setFavourite] = useState([]);
 
   useEffect(() => {
     fetch("https://www.googleapis.com/books/v1/volumes?q=isbn")
@@ -18,13 +19,14 @@ function App() {
   }, []);
 
   //function to add a book to the reading list
-  const addBook = (bookToAdd)=>{
-    if (!books.find((book)=>book.id ===bookToAdd.id)){
-      setBooks([...books,bookToAdd])
+  function  addBook (bookToAdd){
+    if (!favourite.find((book)=>book.id ===bookToAdd.id)){
+      setFavourite([...favourite,bookToAdd])
     } else {
       alert ("I exist")
     }
   }
+
 
 
   return (
@@ -32,10 +34,11 @@ function App() {
       <Navbar/>
       <h1>My Books App</h1>
       <Routes>
-        <Route path="/" element={<BookCollection books={books} />} />
-        <Route path="/readinglist" element={<ReadingList books={books}/>} />
+        <Route path="/" element={<BookCollection books={books} addBook={addBook}/>} />
+        <Route path="/readinglist" element={<ReadingList addBook={addBook} favourite={favourite}/>} />
         <Route path="/viewdetails/:id" element={<ViewDetails books={books}/>}/>
       </Routes>
+      
     </div>
   );
 }
