@@ -25,8 +25,12 @@ function App() {
     } else {
       alert ("I exist")
     }
-  }
+  };
 
+  // function to remove book from reading list
+  const removeBook =(favourite)=>{
+setFavourite(favourite.filter((book)=>book.id !== favourite.id))
+  }
 
 
   return (
