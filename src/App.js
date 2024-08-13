@@ -17,6 +17,16 @@ function App() {
       });
   }, []);
 
+  //function to add a book to the reading list
+  const addBook = (bookToAdd)=>{
+    if (!books.find((book)=>book.id ===bookToAdd.id)){
+      setBooks([...books,bookToAdd])
+    } else {
+      alert ("I exist")
+    }
+  }
+
+
   return (
     <div className="App">
       <Navbar/>

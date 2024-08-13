@@ -11,6 +11,7 @@ function BookCard({ book }) {
       <h3>{title}</h3>
       <p>{authors ? authors.join(', ') : 'Unknown Author'}</p>
       <Link to={`/viewdetails/${id}`}>View Details</Link>
+      <button> Add to your list</button>
     </div>
   );
 }
