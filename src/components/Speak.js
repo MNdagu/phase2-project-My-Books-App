@@ -1,5 +1,5 @@
 import React  from "react";
-function Speak() {
+function Speak({book}) {
  
   const handleClick = ()=>{
     const text = book.descripton
@@ -9,8 +9,8 @@ function Speak() {
     window.speechSynthesis.speak(value);
   }
 
-  return(
-    <buttoon onClick={handleClick}>Speak</buttoon>
-  )
+  // return(
+   
+  // )
 }
 export default Speak;

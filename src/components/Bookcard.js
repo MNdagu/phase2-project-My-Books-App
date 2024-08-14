@@ -14,6 +14,7 @@ function BookCard({ book, addBook, added, removeBook}) {
       {added 
       ?<button onClick={() => removeBook(book)}>Remove from list</button>
       :<button onClick={() => addBook(book)}> Add to your list</button> 
+      
       }
     </div>
   );
