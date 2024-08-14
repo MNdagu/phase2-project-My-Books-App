@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import Speak from "./speak";
-function ViewDetails({ books,handleClick }) {
+import Speak from "./Speak"
+function ViewDetails({ books}) {
   const { id } = useParams();
   const book = books.find((book) => book.id === id);
   const navigate = useNavigate();
@@ -39,8 +39,7 @@ function ViewDetails({ books,handleClick }) {
       >
         Back
       </button>
-      <button onClick={handleClick}>Speak</button>
-      {/* <Speak onClick={handleClick} /> */}
+      <Speak text={book.description} />
     </div>
   );
 }
