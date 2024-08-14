@@ -5,7 +5,9 @@ import { Route, Routes } from "react-router-dom";
 import ReadingList from "./components/ReadingList";
 import Navbar from "./components/Navbar";
 import ViewDetails from "./components/ViewDetails";
-import AddIsbn from "./components/AddIsbn"
+import AddIsbn from "./components/AddIsbn";
+import Speak from "./Speak"
+
 
 function App() {
   const [books, setBooks] = useState([]);
