@@ -8,13 +8,17 @@ function BookCard({ book, addBook, added, removeBook}) {
   return (
     <div className="book-card">
       {imageLinks && <img src={imageLinks.thumbnail} alt={title} />}
+      <div className="details">
       <h3>{title}</h3>
       <p>{authors ? authors.join(", ") : "Unknown Author"}</p>
       <Link to={`/viewdetails/${id}`}>View Details</Link>
-      {added 
+      <div className="add">
+        {added 
       ?<button onClick={() => removeBook(book)}>Remove from list</button>
       :<button onClick={() => addBook(book)}> Add to your list</button> 
       }
+      </div>
+      </div>
     </div>
   );
 }
