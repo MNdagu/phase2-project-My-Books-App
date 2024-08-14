@@ -28,8 +28,8 @@ function App() {
   };
 
   // function to remove book from reading list
-  const removeBook =(favourite)=>{
-setFavourite(favourite.filter((book)=>book.id !== favourite.id))
+  const removeBook =(fav)=>{
+setFavourite(favourite.filter((book)=>book.id !== fav.id))
   }
 
 
@@ -39,7 +39,7 @@ setFavourite(favourite.filter((book)=>book.id !== favourite.id))
       <h1>My Books App</h1>
       <Routes>
         <Route path="/" element={<BookCollection books={books} addBook={addBook}/>} />
-        <Route path="/readinglist" element={<ReadingList addBook={addBook} favourite={favourite}/>} />
+        <Route path="/readinglist" element={<ReadingList favourite={favourite} removeBook={removeBook}/>} />
         <Route path="/viewdetails/:id" element={<ViewDetails books={books}/>}/>
       </Routes>
       

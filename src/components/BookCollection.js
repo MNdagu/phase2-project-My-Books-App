@@ -7,7 +7,7 @@ function BookCollection({ books,addBook }) {
     <h2>My Books Collection</h2>
      <div className="book-collection">
       {books.map((book) => (
-        <BookCard  key={book.id} book={book} addBook={addBook} />
+        <BookCard  key={book.id} book={book} addBook={addBook} added={false}/>
         
       ))}
     </div>
