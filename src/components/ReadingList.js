@@ -1,11 +1,19 @@
 import React from "react";
+import BookCard from "./Bookcard";
 
-const ReadingList = () => {
+function ReadingList({ favourite }) {
   return (
-    <>
-      <h2>My Reading list</h2>
-    </>
+    <div>
+      <h1>My Reading List</h1>
+      {favourite.length > 0 ? (
+        favourite.map((book) => (
+          <BookCard key={book.id} book={book}/>
+        ))
+      ) : (
+        <p>No books in your reading list.</p>
+      )}
+    </div>
   );
-};
+}
 
 export default ReadingList;

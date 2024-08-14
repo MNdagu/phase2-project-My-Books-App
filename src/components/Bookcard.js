@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 
-function BookCard({ book }) {
+function BookCard({ book, addBook, favourite }) {
   const { id, volumeInfo } = book;
   const { title, authors, imageLinks } = volumeInfo;
 
@@ -9,8 +9,9 @@ function BookCard({ book }) {
     <div className="book-card">
       {imageLinks && <img src={imageLinks.thumbnail} alt={title} />}
       <h3>{title}</h3>
-      <p>{authors ? authors.join(', ') : 'Unknown Author'}</p>
+      <p>{authors ? authors.join(", ") : "Unknown Author"}</p>
       <Link to={`/viewdetails/${id}`}>View Details</Link>
+      <button onClick={() => addBook(favourite)}> Add to your list</button>
     </div>
   );
 }
