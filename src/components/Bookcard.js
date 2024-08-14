@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function BookCard({ book, addBook, favourite }) {
+function BookCard({ book, addBook, added, removeBook}) {
   const { id, volumeInfo } = book;
   const { title, authors, imageLinks } = volumeInfo;
 
@@ -11,7 +11,10 @@ function BookCard({ book, addBook, favourite }) {
       <h3>{title}</h3>
       <p>{authors ? authors.join(", ") : "Unknown Author"}</p>
       <Link to={`/viewdetails/${id}`}>View Details</Link>
-      <button onClick={() => addBook(favourite)}> Add to your list</button>
+      {added 
+      ?<button onClick={() => removeBook(book)}>Remove from list</button>
+      :<button onClick={() => addBook(book)}> Add to your list</button> 
+      }
     </div>
   );
 }
