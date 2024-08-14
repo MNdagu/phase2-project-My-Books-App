@@ -35,18 +35,19 @@ if (isbn){
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='addisbnform'>
       <div>
         <label htmlFor="isbn">Enter book ISBN:</label>
         <input
           type="text"
           id="isbn"
+          placeholder='Enter ISBN code...'
           value={isbn}
           onChange={(e) => setIsbn(e.target.value)}
           required
         />
       </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className='error'>{error}</p>}
       <button type="submit">Add Book</button>
     </form>
     </>

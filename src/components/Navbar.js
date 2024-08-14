@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
     return ( 
         <>
-        <nav>
+        <nav className="navbar">
       <NavLink
         to="/"
         className="nav-link"
@@ -22,7 +22,7 @@ const Navbar = () => {
         to="/addisbn"
         className="nav-link"
       >
-        Add book ISBN
+        Add New book
       </NavLink>
       </nav>
         </>

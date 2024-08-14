@@ -4,7 +4,8 @@ import BookCard from "./Bookcard";
 function ReadingList({ favourite, removeBook }) {
   return (
     <div>
-      <h1>My Reading List</h1>
+      <h2>My Reading List</h2>
+      <div className="book-collection">
       {favourite.length > 0 ? (
         favourite.map((book) => (
           <BookCard
@@ -15,8 +16,9 @@ function ReadingList({ favourite, removeBook }) {
           />
         ))
       ) : (
-        <p> You have nothing to read.</p>
+        <p className="nothing"> You have nothing on your reading list.</p>
       )}
+      </div>
     </div>
   );
 }
