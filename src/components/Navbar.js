@@ -18,6 +18,12 @@ const Navbar = () => {
       >
         My Reading List
       </NavLink>
+      <NavLink
+        to="/addisbn"
+        className="nav-link"
+      >
+        Add book ISBN
+      </NavLink>
       </nav>
         </>
      );

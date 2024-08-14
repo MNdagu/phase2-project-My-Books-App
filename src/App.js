@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import ReadingList from "./components/ReadingList";
 import Navbar from "./components/Navbar";
 import ViewDetails from "./components/ViewDetails";
+import AddIsbn from "./components/AddIsbn"
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -32,6 +33,10 @@ function App() {
 setFavourite(favourite.filter((book)=>book.id !== fav.id))
   }
 
+  const handleAddnewBook = (newBook) => {
+    setBooks([...books, newBook]);
+  };
+
 
   return (
     <div className="App">
@@ -41,6 +46,8 @@ setFavourite(favourite.filter((book)=>book.id !== fav.id))
         <Route path="/" element={<BookCollection books={books} addBook={addBook}/>} />
         <Route path="/readinglist" element={<ReadingList favourite={favourite} removeBook={removeBook}/>} />
         <Route path="/viewdetails/:id" element={<ViewDetails books={books}/>}/>
+        <Route path="/addisbn" element={<AddIsbn onAddnewBook={handleAddnewBook}/>}/>
+
       </Routes>
       
     </div>
