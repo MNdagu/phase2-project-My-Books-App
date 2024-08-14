@@ -10,7 +10,6 @@ import AddIsbn from "./components/AddIsbn";
 function App() {
   const [books, setBooks] = useState([]);
   const [favourite, setFavourite] = useState([]);
-  const [speaking, setSpeaking] = useState(false);
 
   useEffect(() => {
     fetch("https://www.googleapis.com/books/v1/volumes?q=isbn")
@@ -38,19 +37,6 @@ function App() {
     setBooks([...books, newBook]);
   };
 
-  // function to convert text to speech
-  const speakText = () => {
-    if ("speechSynthesis" in window) {
-      const text = books.description;
-      const utterance = new SpeechSynthesisUtterance(text);
-      setSpeaking(true);
-      utterance.onend = () => setSpeaking(false);
-      speechSynthesis.speak(utterance);
-    } else {
-      alert("oopsie! Browser doesnt support text to audio");
-    }
-  };
-
   return (
     <div className="App">
       <Navbar />
@@ -75,9 +61,6 @@ function App() {
           element={<AddIsbn onAddnewBook={handleAddnewBook} />}
         />
       </Routes>
-      <button onClick={speakText} disabled={speaking}>
-        {speaking ? "Speaking..." : "Read out loud"}
-      </button>
     </div>
   );
 }
