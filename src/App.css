@@ -110,7 +110,7 @@ nav {
 
 
 .addisbnform {
-  background-color: #fff;
+  background-color: blanchedalmond;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -144,6 +144,7 @@ nav {
   line-height: 36px;
   padding: 0 10px;
   font-size: 14px;
+  border-radius: 5px;
 }
 
 .addisbnform button[type="submit"]:hover {
@@ -355,3 +356,52 @@ nav {
 .import input[type="file"] {
   margin-top: 10px;
 }
+
+/* styles.css */
+.image-barcode-scanner {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: blanchedalmond;
+}
+
+.image-barcode-scanner h2 {
+  text-align: center;
+  color: #333;
+}
+
+.image-barcode-scanner input[type="file"] {
+  display: block;
+  margin: 10px auto;
+}
+
+.image-barcode-scanner button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.image-barcode-scanner button:hover {
+  background-image: linear-gradient(to right,#3ec7e0,#526bf4);
+}
+
+.image-barcode-scanner p {
+  text-align: center;
+  font-size: 18px;
+}
+
+.image-barcode-scanner .error {
+  color: red;
+  font-weight: bold;
+}
+

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
+import ImageBarcodeScanner from './ImageBarcodeScanner';
 
 
 
@@ -55,6 +56,7 @@ if (isbn){
       {error && <p className='error'>{error}</p>}
       <button type="submit">Add Book</button>
     </form>
+    <ImageBarcodeScanner/>
     </>
     
   );

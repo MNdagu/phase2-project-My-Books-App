@@ -5,13 +5,11 @@ import ImportExport from './ImportExport';
 function BookCollection({ books, addBook, importBooks }) {
   const [searchQuery, setSearchQuery] = useState('');
   
-  // Function to handle search input changes
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
 
-  // Filter books based on search query
   const filteredBooks = books.filter((book) => {
     const title = book.volumeInfo.title.toLowerCase();
     const author = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ').toLowerCase() : '';

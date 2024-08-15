@@ -9,6 +9,7 @@ import AddIsbn from "./components/AddIsbn";
 import bookLogo from "./assets/book-open-regular-24.png";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom";
+import ImageBarcodeScanner from "./components/ImageBarcodeScanner";
 
 
 
@@ -80,6 +81,10 @@ function App() {
         <Route
           path="/addisbn"
           element={<AddIsbn onAddnewBook={handleAddnewBook} />}
+        />
+        <Route
+          path="/scan"
+          element={<ImageBarcodeScanner/>}
         />
       </Routes>
 
