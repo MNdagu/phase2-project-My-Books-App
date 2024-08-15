@@ -1,17 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BookCard from './Bookcard';
+import ImportExport from './ImportExport';
 
-function BookCollection({ books }) {
+function BookCollection({ books, addBook, importBooks }) {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+
+  const filteredBooks = books.filter((book) => {
+    const title = book.volumeInfo.title.toLowerCase();
+    const author = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ').toLowerCase() : '';
+    const query = searchQuery.toLowerCase();
+    return title.includes(query) || author.includes(query);
+  });
+
   return (
     <>
-    <h2>My Books Collection</h2>
-     <div className="book-collection">
-      {books.map((book) => (
-        <BookCard  key={book.id} book={book} />
-      ))}
-    </div>
+      <h2>My Books Collection</h2>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search by title or author"
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="search-input"
+        />
+      </div>
+      <div className="book-collection">
+        {filteredBooks.length > 0 ? (
+          filteredBooks.map((book) => (
+            <BookCard
+              key={book.id}
+              book={book}
+              addBook={addBook}
+              added={false}
+            />
+          ))
+        ) : (
+          <p>No books found.</p>
+        )}
+      </div>
+      <ImportExport books={books} onBooksImport={importBooks}/>
+
+      
     </>
-   
   );
 }
 

@@ -5,10 +5,12 @@ import { Route, Routes } from "react-router-dom";
 import ReadingList from "./components/ReadingList";
 import Navbar from "./components/Navbar";
 import ViewDetails from "./components/ViewDetails";
-import BookTracker from "./Booktracker";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [favourite, setFavourite] = useState([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
 
@@ -20,28 +22,32 @@ function App() {
       
   }, []);
 
-  function handleDelete(bookId){
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn ${bookId}`,{
-      method: "DELETE",
-
-    })
-    .then((response)=>response.json())
-
-    .then(()=>{
-      setBooks(books.filter((book)=>book.id!==bookId));
-    })
-  }
-
   return (
     <div className="App">
-      <Navbar/>
-      <h1>My Books App</h1>
+      <div className="header">
+        <h1 className="title">
+        <img src={bookLogo} alt="Book Logo" className="book-logo" />
+         Bibliophilia 
+        <img src={bookLogo} alt="Book Logo" className="book-logo" />
+        </h1>
+      </div>
+
+      <Navbar />
       <Routes>
-        <Route path="/" element={<BookCollection books={books} handleDelete={handleDelete}/>} />
+        <Route path="/" element={<BookCollection books={books} />} />
         <Route path="/readinglist" element={<ReadingList books={books}/>} />
         <Route path="/viewdetails/:id" element={<ViewDetails books={books}/>}/>
-        <Route path="/booktracker" element={<BookTracker/>}/>
       </Routes>
+
+      <footer className="footer">
+      <p>&copy; 2024 Bibliophilia. All rights reserved.</p>
+      <p>Contact us: info@bibliophilia.com</p>
+      <p>
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub</a> | 
+        <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </p>
+    </footer>
+      
     </div>
   );
 }

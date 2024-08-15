@@ -25,17 +25,13 @@ function ViewDetails({ books }) {
       <p><strong>Publisher:</strong> {publisher}</p>
       
       <p><strong>Description:</strong> {description}</p>
-
-      <h3>Book Time</h3>
-      
-      <BookTracker/>
-      
       <button
           style={{ width: "10%", marginLeft: "700px" , marginBottom:"10px"}}
           onClick={() => navigate("/")}
         >
           Back
         </button>
+
     </div>
   );
 }
