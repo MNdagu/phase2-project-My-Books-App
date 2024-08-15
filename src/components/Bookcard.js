@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function BookCard({ book }) {
+function BookCard({ book,handleDelete }) {
   const { id, volumeInfo } = book;
   const { title, authors, imageLinks } = volumeInfo;
 
@@ -11,6 +11,7 @@ function BookCard({ book }) {
       <h3>{title}</h3>
       <p>{authors ? authors.join(', ') : 'Unknown Author'}</p>
       <Link to={`/viewdetails/${id}`}>View Details</Link>
+      <button onClick={()=>handleDelete(book.id)} >Delete</button>
     </div>
   );
 }

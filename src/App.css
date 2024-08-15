@@ -33,3 +33,6 @@
 .nav-link.active {
   background-color: darkblue;
 }
+.form{
+  align-items: center;
+}

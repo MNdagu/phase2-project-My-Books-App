@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import BookTracker from '../Booktracker';
 
 
 function ViewDetails({ books }) {
@@ -24,6 +25,11 @@ function ViewDetails({ books }) {
       <p><strong>Publisher:</strong> {publisher}</p>
       
       <p><strong>Description:</strong> {description}</p>
+
+      <h3>Book Time</h3>
+      
+      <BookTracker/>
+      
       <button
           style={{ width: "10%", marginLeft: "700px" , marginBottom:"10px"}}
           onClick={() => navigate("/")}
