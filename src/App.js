@@ -46,6 +46,14 @@ function App() {
     setBooks([...books, newBook]);
   };
 
+  const importBooks = (newBooks) => {
+    setBooks(newBooks);
+  };
+
+  const handleAddnewBook = (newBook) => {
+    setBooks([...books, newBook]);
+  };
+
   return (
     <div className="App">
       <div className="header">
@@ -60,7 +68,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<BookCollection books={books} addBook={addBook} />}
+          element={<BookCollection books={books} addBook={addBook} importBooks={importBooks} />}
         />
         <Route
           path="/readinglist"
@@ -77,6 +85,7 @@ function App() {
           element={<AddIsbn onAddnewBook={handleAddnewBook} />}
         />
       </Routes>
+
       <footer className="footer">
       <p>&copy; 2024 Bibliophilia. All rights reserved.</p>
       <p>Contact us: info@bibliophilia.com</p>

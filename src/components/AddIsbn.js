@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
 
 
 
 function AddBook({ onAddnewBook }) {
   const [isbn, setIsbn] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,6 +21,7 @@ if (isbn){
             Swal.fire("New book add successfully!");
             setIsbn('');
             setError('');
+            navigate("/")
           } else {
             setError('No book found with this ISBN.');
             setIsbn('');

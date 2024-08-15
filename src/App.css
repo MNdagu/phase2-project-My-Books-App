@@ -320,3 +320,38 @@ nav {
   font-size: 1.2rem;
   color: #555;
 }
+
+.import {
+  background-color: #F98866;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.import p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.import button {
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.import button:hover {
+  background-image: linear-gradient(to right,#3ec7e0,#526bf4);
+}
+
+.import input[type="file"] {
+  margin-top: 10px;
+}
