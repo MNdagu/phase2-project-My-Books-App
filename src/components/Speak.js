@@ -1,31 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 function Speak({ book }) {
   const [speaking, setSpeaking] = useState(false);
+  const [selectedVoice, setSelectedVoice] = useState(null);
+
+  useEffect(() => {
+    const fetchVoices = () => {
+      const availableVoices = speechSynthesis.getVoices();
+      const desiredVoice = availableVoices.find(
+        (voice) => voice.name === "Google US English" || voice.lang === "en-US"
+      );
+      setSelectedVoice(desiredVoice || availableVoices[0]);
+    };
+
+    fetchVoices();
+    speechSynthesis.onvoiceschanged = fetchVoices;
+  }, []);
+
   const speakText = () => {
-    if ("speechSynthesis" in window) {
-      //extract description  that will be read out loud
+    console.log(book);
+    console.log(book.description);
+
+    if ("speechSynthesis" in window && book && book.description) {
       const text = book.description;
-      // create a speechSynthesis Utterance object that will be used to perform speech 
       const utterance = new SpeechSynthesisUtterance(text);
-      // indicate that text is currently being spoken 
+
+      if (selectedVoice) {
+        utterance.voice = selectedVoice;
+      }
+
       setSpeaking(true);
-      // stop speaking when text ends
       utterance.onend = () => setSpeaking(false);
-      //initiate speech using speak method passing utterance as argument
       speechSynthesis.speak(utterance);
     } else {
-      alert("oopsie! Browser doesn't support TTS");
+      alert("Oops! Book description is not available or TTS is not supported.");
     }
   };
+
   return (
-    // conditioned button to change when audio is being played to speaking and play audio  when not speaking
     <div>
       <button onClick={speakText} disabled={speaking}>
-        {speaking ? "Speaking..." : "play audio"}
+        {speaking ? "Speaking..." : "Play audio"}
       </button>
     </div>
   );
 }
+
 export default Speak;
-
-

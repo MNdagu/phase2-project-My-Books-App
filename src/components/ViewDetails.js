@@ -1,8 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Speak from "./Speak"
-function ViewDetails({ books}) {
+import Speak from "./Speak";
+
+function ViewDetails({ books }) {
   const { id } = useParams();
   const book = books.find((book) => book.id === id);
   const navigate = useNavigate();
@@ -12,8 +13,7 @@ function ViewDetails({ books}) {
   }
 
   const { volumeInfo } = book;
-  const { title, authors, description, imageLinks, publishedDate, publisher } =
-    volumeInfo;
+  const { title, authors, description, imageLinks, publishedDate, publisher } = volumeInfo;
 
   return (
     <div className="book-details">
@@ -29,7 +29,6 @@ function ViewDetails({ books}) {
       <p>
         <strong>Publisher:</strong> {publisher}
       </p>
-
       <p>
         <strong>Description:</strong> {description}
       </p>
@@ -39,7 +38,8 @@ function ViewDetails({ books}) {
       >
         Back
       </button>
-      <Speak text={book.description} />
+      {/* Pass the entire volumeInfo object to Speak as book */}
+      <Speak book={volumeInfo} />
     </div>
   );
 }
