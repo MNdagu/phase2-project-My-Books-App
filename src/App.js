@@ -50,6 +50,9 @@ function App() {
     setBooks(newBooks);
   };
 
+  const handleAddnewBook = (newBook) => {
+    setBooks([...books, newBook]);
+  };
 
   return (
     <div className="App">

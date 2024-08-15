@@ -9,7 +9,6 @@ function AddBook({ onAddnewBook }) {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
 if (isbn){
@@ -23,7 +22,6 @@ if (isbn){
             setIsbn('');
             setError('');
             navigate("/")
-
           } else {
             setError('No book found with this ISBN.');
             setIsbn('');

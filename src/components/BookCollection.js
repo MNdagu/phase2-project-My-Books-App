@@ -19,6 +19,22 @@ function BookCollection({ books, addBook, importBooks }) {
     return title.includes(query) || author.includes(query);
   });
 
+function BookCollection({ books, addBook }) {
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  // Function to handle search input changes
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  // Filter books based on search query
+  const filteredBooks = books.filter((book) => {
+    const title = book.volumeInfo.title.toLowerCase();
+    const author = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ').toLowerCase() : '';
+    const query = searchQuery.toLowerCase();
+    return title.includes(query) || author.includes(query);
+  });
+
   return (
     <>
       <h2>My Books Collection</h2>
@@ -46,8 +62,6 @@ function BookCollection({ books, addBook, importBooks }) {
         )}
       </div>
       <ImportExport books={books} onBooksImport={importBooks}/>
-
-      
     </>
   );
 }
