@@ -23,7 +23,7 @@ if (isbn){
             Swal.fire("New book add successfully!");
             setIsbn('');
             setError('');
-            navigate("/")
+            navigate("/collection")
 
           } else {
             setError('No book found with this ISBN.');
@@ -56,7 +56,8 @@ if (isbn){
       {error && <p className='error'>{error}</p>}
       <button type="submit">Add Book</button>
     </form>
-    <ImageBarcodeScanner/>
+    <ImageBarcodeScanner isbn={isbn} setIsbn={setIsbn}/>
+
     </>
     
   );

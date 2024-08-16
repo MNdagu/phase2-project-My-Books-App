@@ -7,7 +7,7 @@ const Navbar = () => {
         <>
         <nav className="navbar">
       <NavLink
-        to="/"
+        to="/collection"
         className="nav-link"
       >
         My Book Collection

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Quagga from 'quagga';
 
-function ImageBarcodeScanner() {
-  const [isbn, setIsbn] = useState('');
+function ImageBarcodeScanner({isbn, setIsbn}) {
   const [error, setError] = useState('');
   const [file, setFile] = useState(null);
 
@@ -60,7 +59,7 @@ function ImageBarcodeScanner() {
       <input type="file" accept="image/*" onChange={handleFileChange} />
       <button onClick={handleScan}>Scan ISBN</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      {isbn && <p>Scanned ISBN: {isbn}</p>}
+      {isbn && <p> ISBN scanned successfully!</p>}
     </div>
   );
 }

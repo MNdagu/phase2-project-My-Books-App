@@ -144,7 +144,6 @@ nav {
   line-height: 36px;
   padding: 0 10px;
   font-size: 14px;
-  border-radius: 5px;
 }
 
 .addisbnform button[type="submit"]:hover {
@@ -357,7 +356,108 @@ nav {
   margin-top: 10px;
 }
 
-/* styles.css */
+.tts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.speak {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.speak:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.speak:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.speak:not(:disabled) {
+  background-color: #007bff;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 500px;
+  justify-content: center;
+}
+
+.book-details img {
+  max-width: 200px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.viewdetails {
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.details-header {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+#description {
+  white-space: pre-wrap; 
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #007bff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .image-barcode-scanner {
   max-width: 600px;
   margin: 0 auto;
@@ -403,5 +503,114 @@ nav {
 .image-barcode-scanner .error {
   color: red;
   font-weight: bold;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #F98866;
+  text-align: center;
+  padding: 20px;
+}
+
+.landing-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.landing-content h1 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.landing-content p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.get-started-btn {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff; 
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #0056b3; 
+}
+
+.landing-image {
+  max-width: 50%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px; 
+}
+
+.tracker {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tracker h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tracker input,
+.tracker button {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  padding: 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.tracker input[type="number"] {
+  width: 50%;
+}
+
+.tracker button {
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.tracker button:hover {
+  background-image: linear-gradient(to right,#3ec7e0,#526bf4);
+}
+
+.tracker p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.tracker p span {
+  font-weight: bold;
+}
+
+.tracker .error {
+  color: red;
+}
+
+.tracker .loading {
+  color: #007bff;
 }
 

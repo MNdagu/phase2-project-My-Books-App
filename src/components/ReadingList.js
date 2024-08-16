@@ -13,6 +13,7 @@ function ReadingList({ favourite, removeBook }) {
             book={book}
             added={true}
             removeBook={removeBook}
+            del={false}
           />
         ))
       ) : (

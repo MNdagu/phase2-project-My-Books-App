@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function BookCard({ book, addBook, added, removeBook}) {
+
+function BookCard({ book, addBook, added, removeBook, deleteBook, del}) {
   const { id, volumeInfo } = book;
   const { title, authors, imageLinks } = volumeInfo;
 
@@ -18,8 +19,15 @@ function BookCard({ book, addBook, added, removeBook}) {
       :<button onClick={() => addBook(book)}> Add to your list</button> 
       }
       </div>
+      <div>
+      {
+        del
+        ?<button onClick={() => deleteBook(book)}>Delete</button>
+        : ''
+      }
       </div>
-    </div>
+      </div>
+      </div>
   );
 }
 
