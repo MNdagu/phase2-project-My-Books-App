@@ -1,7 +1,8 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-import Speak from "./Speak";
+import Speak from './Speak';
+
 
 function ViewDetails({ books }) {
   const { id } = useParams();
@@ -18,28 +19,20 @@ function ViewDetails({ books }) {
   return (
     <div className="book-details">
       {imageLinks && <img src={imageLinks.thumbnail} alt={title} />}
-      <h2>{title}</h2>
-      <p>
-        <strong>Author(s):</strong>{" "}
-        {authors ? authors.join(", ") : "Unknown Author"}
-      </p>
-      <p>
-        <strong>Published Date:</strong> {publishedDate}
-      </p>
-      <p>
-        <strong>Publisher:</strong> {publisher}
-      </p>
-      <p>
-        <strong>Description:</strong> {description}
-      </p>
+      <div className='viewdetails'>
+      <p><span className="details-header">Author(s):</span> {authors ? authors.join(', ') : 'Unknown Author'}</p>
+        <p><span className="details-header">Published Date:</span> {publishedDate}</p>
+        <p><span className="details-header">Publisher:</span> {publisher}</p>
+        <p id="description"><span className="details-header">Description:</span> {description}</p>
+      </div>
       <button
-        style={{ width: "10%", marginLeft: "700px", marginBottom: "10px" }}
-        onClick={() => navigate("/")}
-      >
-        Back
-      </button>
-      {/* Pass the entire volumeInfo object to Speak as book */}
-      <Speak book={volumeInfo} />
+          style={{ width: "10%", marginLeft: "700px" , marginBottom:"10px"}}
+          onClick={() => navigate("/")}
+        >
+          Back
+        </button>
+        <Speak book={volumeInfo}/>
+
     </div>
   );
 }
